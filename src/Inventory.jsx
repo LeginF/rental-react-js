@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Count} from './Count';
+import Count from './Count';
 
 function RenderInentoryArray(start, end) {
   const [availInv, setAvailInv] = useState(null);
