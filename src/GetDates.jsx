@@ -33,16 +33,20 @@ export default function GetDates(props) {
 
   return (
       <form class="row g-3">
-        <div className="col-12">Rental Dates:</div>
-        <div className="col-md-6">
+        <div className="col-1">&nbsp;</div>
+        <div className="col-11">Choose your rental dates:</div>
+        <div className="col-1">&nbsp;</div>
+        <div className="col-md-5">
           <label htmlFor="startDate" className="form-label">Pickup</label>
           <input type="date" className="form-control" id="startDate" onInput={handleStartDateChanged}/>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-5">
           <label htmlFor="endDate" className="form-label">Return</label>
           <input type="date" id="endDate" className="form-control" onInput={handleEndDateChanged}/>
         </div>
-        <div clasName="col-12">
+        <div className="col-1">&nbsp;</div>
+        <div className="col-1">&nbsp;</div>
+        <div className="col-11">
           <Button onClick={onNextClicked} >Next</Button>
         </div>
       </form>
