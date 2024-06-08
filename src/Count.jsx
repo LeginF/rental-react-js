@@ -6,7 +6,7 @@ function Count(props) {
   return (
     <>
       <Button>-</Button>
-      <input type="number" />
+      <input type="number" value="0"/>
       <Button>+</Button>
     </>
   );

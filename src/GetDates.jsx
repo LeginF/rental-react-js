@@ -32,17 +32,19 @@ export default function GetDates(props) {
   }
 
   return (
-      <form>
-            <h2>Rental Dates:</h2>
-            <div class="input-group">
-            <h3>Pickup Date&nbsp;</h3>
-            <input type="date" id="startDate" onInput={handleStartDateChanged}/>
-            </div>
-            <div class="input-group">
-            <h3>Return Date&nbsp;</h3>
-            <input type="date" id="endDate" onInput={handleEndDateChanged}/>
-            </div>
-            <Button onClick={onNextClicked} >Next</Button>
+      <form class="row g-3">
+        <div className="col-12">Rental Dates:</div>
+        <div className="col-md-6">
+          <label htmlFor="startDate" className="form-label">Pickup</label>
+          <input type="date" className="form-control" id="startDate" onInput={handleStartDateChanged}/>
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="endDate" className="form-label">Return</label>
+          <input type="date" id="endDate" className="form-control" onInput={handleEndDateChanged}/>
+        </div>
+        <div clasName="col-12">
+          <Button onClick={onNextClicked} >Next</Button>
+        </div>
       </form>
   );
 }
