@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Count from './Count';
+import { Container } from 'react-bootstrap';
 
 function RenderInentoryArray(start, end) {
   const [availInv, setAvailInv] = useState(null);
@@ -26,10 +27,11 @@ function RenderInentoryArray(start, end) {
     tableRows = availInv.inventory.map((item) => {
       return (
         <tr key={item._id}>
+          <td>&nbsp;</td>
           <td>{item.name}</td>
           <td>{item.description}</td>
-          <td>{item.count}</td>
-          <td><Count/></td>
+          <td><Count inventoryId={item._id}/></td>
+          <td>&nbsp;</td>
         </tr>
         );
       });
@@ -56,16 +58,23 @@ export default function Inventory(props) {
   const end = reservationDates.endDate;
   try {
     return(
-      <div className="input-group mb-3">
-        <h2>
-          Inventory Available&nbsp;
-          {start} to&nbsp;
-          {end}:
-        </h2>
-        <RenderInentoryArray start={start} end={end} />
-        <Button className="ml-auto">Back</Button>
-        <Button stye="align:right">Next</Button>
-      </div>
+      <Container>
+        <div className='col-1'>&nbsp;</div>
+        <div className="col-11input-group mb-3">
+          <h3>
+            Inventory Available&nbsp;
+            {start} to {end}:
+          </h3>
+          <div className='col'>
+            <RenderInentoryArray start={start} end={end} />
+          </div>
+          <Button className="col">Back</Button>
+          <div className='col'>
+            <div className='box'>foo</div>
+          </div>
+          <Button stye="col ">Next</Button>
+        </div>
+      </Container>
     );
   } catch (err) {
     console.log(err);
