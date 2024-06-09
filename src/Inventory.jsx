@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Count from './Count';
 import { Container } from 'react-bootstrap';
 
 function RenderInventoryArray(start, end) {
@@ -31,6 +30,7 @@ function RenderInventoryArray(start, end) {
                 max={item.count}
                 min="0"></input>
               &nbsp; of {item.count}
+              &nbsp;@ {item.price} ea.
             </div>
           </td>
           <td>&nbsp;</td>
