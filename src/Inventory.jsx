@@ -5,20 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Count from './Count';
 import { Container } from 'react-bootstrap';
 
-function RenderInentoryArray(start, end) {
+function RenderInventoryArray(start, end) {
   const [availInv, setAvailInv] = useState(null);
   const query = `http://localhost:5050/availableInventory?start=${start}&end=${end}`;
     
   // Query for available inventory
-  try {
-    useEffect(() => {
-        fetch(query)
-          .then((resp) => resp.json())
-          .then((data) => setAvailInv(data))
-    },[]);
-  } catch (err) {
-    console.log(`error fetching: ${err}`);
-  }
+  // TODO: Execute before RenderInentoryArray, pass in array
+  QueryAvailableInventory(query, setAvailInv);
 
   // Construct the table rows
   let tableRows = undefined;
@@ -32,12 +25,13 @@ function RenderInentoryArray(start, end) {
           <td>{item.description}</td>
           <td>
             <div className='input-group'>
-            <input 
-              type="number" 
-              className='form-control' 
-              max={item.count}
-              min="0"></input>&nbsp; of {item.count}
-              </div>
+              <input 
+                type="number" 
+                className='form-control' 
+                max={item.count}
+                min="0"></input>
+              &nbsp; of {item.count}
+            </div>
           </td>
           <td>&nbsp;</td>
         </tr>
@@ -60,6 +54,18 @@ function RenderInentoryArray(start, end) {
   }
 }
 
+function QueryAvailableInventory(query, setAvailInv) {
+  try {
+    useEffect(() => {
+      fetch(query)
+        .then((resp) => resp.json())
+        .then((data) => setAvailInv(data));
+    }, []);
+  } catch (err) {
+    console.log(`error fetching: ${err}`);
+  }
+}
+
 export default function Inventory(props) {
   const reservationDates = props.reservationDates;
   const start = reservationDates.startDate;
@@ -74,7 +80,7 @@ export default function Inventory(props) {
             {start} to {end}:
           </h3>
           <div className='col'>
-            <RenderInentoryArray start={start} end={end} />
+            <RenderInventoryArray start={start} end={end} />
           </div>
           <Button className="col">Back</Button>
           <div className='col'>
