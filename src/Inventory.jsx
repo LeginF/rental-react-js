@@ -30,7 +30,15 @@ function RenderInentoryArray(start, end) {
           <td>&nbsp;</td>
           <td>{item.name}</td>
           <td>{item.description}</td>
-          <td><Count inventoryId={item._id}/></td>
+          <td>
+            <div className='input-group'>
+            <input 
+              type="number" 
+              className='form-control' 
+              max={item.count}
+              min="0"></input>&nbsp; of {item.count}
+              </div>
+          </td>
           <td>&nbsp;</td>
         </tr>
         );
