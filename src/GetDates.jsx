@@ -32,7 +32,7 @@ export default function GetDates(props) {
   }
 
   return (
-      <form class="row g-3">
+      <form className="row g-3">
         <div className="col-1">&nbsp;</div>
         <div className="col-11">Choose your rental dates:</div>
         <div className="col-1">&nbsp;</div>
