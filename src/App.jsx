@@ -6,11 +6,13 @@ import Inventory from './Inventory';
 
 function App() {
   const [reservationDates, setReservationDates] = useState(null);
+  const [selections, setSelections] = useState(new Map());
 
   return (
     <>
     { !reservationDates && <GetDates setDates={setReservationDates} /> }
-    { (reservationDates) && <Inventory reservationDates={reservationDates} /> }
+    { (reservationDates) 
+      && <Inventory reservationDates={reservationDates} selections={selections}/> }
     </>
   )
 }
