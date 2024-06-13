@@ -20,6 +20,7 @@ export default function GetDates(props) {
          startDate: startDate,
          endDate: endDate,
       });
+      props.setActiveSection(1);
     }
   }
 

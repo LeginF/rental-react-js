@@ -96,11 +96,8 @@ export default function Inventory(props) {
           <div className='col'>
             <RenderInventoryArray start={start} end={end} selections={selections}/>
           </div>
-          <Button className="col">Back</Button>
-          <div className='col'>
-            <div className='box'>foo</div>
-          </div>
-          <Button stye="col ">Next</Button>
+          <Button className="col" onClick={()=>{props.setActiveSection(0);}}>Back</Button>
+          <Button stye="col " onClick={()=>{props.setActiveSection(2);}}>Next</Button>
         </div>
       </Container>
     );
